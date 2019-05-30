@@ -16,6 +16,7 @@ public class Cadeia {
 		this.itens = itens;
 	}
 	public String getPrimeiroItem() {
+		
 		return itens[0];
 	}
 	public void removerprimeiroItem() {

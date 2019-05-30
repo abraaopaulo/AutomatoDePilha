@@ -24,12 +24,12 @@ public class Test {
 		estados.add(q2);
 		
 		ArrayList<Transicao> q0Transicoes = new ArrayList<>();
-		q0Transicoes.add(new Transicao(estados.get(0),estados.get(0),"0","",""));
+		q0Transicoes.add(new Transicao(estados.get(0),estados.get(0),"0","E","E"));
 		q0Transicoes.add(new Transicao(estados.get(0),estados.get(1),"","",""));
 		
 		ArrayList<Transicao> q1Transicoes = new ArrayList<>();
-		q1Transicoes.add(new Transicao(estados.get(1),estados.get(1),"1","x",""));
-		q1Transicoes.add(new Transicao(estados.get(1),estados.get(2),"","$","$"));
+		q1Transicoes.add(new Transicao(estados.get(1),estados.get(1),"1","x","E"));
+		q1Transicoes.add(new Transicao(estados.get(1),estados.get(2),"E","$","$"));
 		
 		ArrayList<Transicao> q3Transicoes = new ArrayList<>();
 		
