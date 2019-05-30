@@ -1,2 +1,0 @@
-# AutomatoDePilha
-Autômato de pilha
