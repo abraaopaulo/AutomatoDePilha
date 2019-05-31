@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Estado {
 	
-	private String id;
 	private String nome;
 	
 	private ArrayList<Transicao> transicoes;
@@ -12,12 +11,11 @@ public class Estado {
 	private boolean estadoInicial = false;
 	private boolean estadoFinal = false;
 	
-	public Estado(ArrayList<Transicao> transicoes, boolean estadoInicial, boolean estadoFinal, String idnome) {
+	public Estado(ArrayList<Transicao> transicoes, boolean estadoInicial, boolean estadoFinal, String nome) {
 		this.transicoes = transicoes;
 		this.estadoInicial = estadoInicial;
 		this.estadoFinal = estadoFinal;
-		this.id = idnome;
-		this.nome = idnome;
+		this.nome = nome;
 	}
 	public Estado() {}
 	public ArrayList<Transicao> getTransicoes() {
@@ -43,15 +41,9 @@ public class Estado {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-		this.id = nome;
 	}
 
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -65,11 +57,7 @@ public class Estado {
 			return false;
 		if (estadoInicial != other.estadoInicial)
 			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
+
 		if (nome == null) {
 			if (other.nome != null)
 				return false;

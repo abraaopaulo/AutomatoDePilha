@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Arrays;
+
 public class Cadeia {
 	
 	private String[] itens;
@@ -16,9 +18,16 @@ public class Cadeia {
 		this.itens = itens;
 	}
 	public String getPrimeiroItem() {
-		
-		return itens[0];
+		if(itens.length > 0 ) {
+			return itens[0];
+		}
+		return "erro";
 	}
+	@Override
+	public String toString() {
+		return "Cadeia [itens=" + Arrays.toString(itens) + "]";
+	}
+
 	public void removerprimeiroItem() {
 		String[] nova = new String[itens.length-1];
 		for(int i = 1; i<itens.length; i++) {

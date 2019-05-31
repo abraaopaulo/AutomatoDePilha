@@ -12,9 +12,9 @@ public class Test {
 		
 		ArrayList<Estado> estados = new ArrayList<>();
 		
-		Estado q0 = new Estado(); 
-		Estado q1 = new Estado();
-		Estado q2 = new Estado();
+		Estado q0 = new Estado(); q0.setNome("q0");
+		Estado q1 = new Estado(); q1.setNome("q1");
+		Estado q2 = new Estado(); q2.setNome("q2");
 		
 		q0.setEstadoInicial(true);
 		q2.setEstadoFinal(true);

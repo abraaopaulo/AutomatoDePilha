@@ -55,18 +55,19 @@ public class Automato {
 			for(String s :t.getConsome())consome += s;			
 			for(String s :t.getRetorna())retorna += s;
 					
+			//se o que posso ler é igual a o primeiro item da cadeia
 			if(ler.equals(restoCadeia.getPrimeiroItem())) {
-				restoCadeia.removerprimeiroItem();
 				if(pilha.peek().equals(consome)) {
 					pilha.pop();
 				}
 				pilha.push(retorna);
 				
-				iteracoes.add("|- "+t.getEstadoFinal().getNome()+", "+
+				iteracoes.add("|- "+t.getEstadoFinal().getNome()+" / "+cadeia.toString()+" / "+
 				pilha.toString());
+				restoCadeia.removerprimeiroItem();
 				ninguemTemOQLeio = false;				
 				return iterar(t.getEstadoFinal(),restoCadeia,iteracoes);
-			}else if(ler.equals("")){
+			}else if(ler.equals("E")){
 				estadoTransicaoVaizia = t.getEstadoFinal();
 			}
 		}
