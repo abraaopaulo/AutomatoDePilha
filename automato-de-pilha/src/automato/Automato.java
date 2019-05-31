@@ -60,10 +60,10 @@ public class Automato {
 				if(pilha.peek().equals(consome)) {
 					pilha.pop();
 				}
-				pilha.push(retorna);
+				if(!retorna.equals("E"))
+					pilha.push(retorna);
 				
-				iteracoes.add("|- "+t.getEstadoFinal().getNome()+" / "+cadeia.toString()+" / "+
-				pilha.toString());
+				iteracoes.add("|- "+t.getEstadoFinal().getNome()+" / "+cadeia.toString()+" / "+pilha.toString());
 				restoCadeia.removerprimeiroItem();
 				ninguemTemOQLeio = false;				
 				return iterar(t.getEstadoFinal(),restoCadeia,iteracoes);
@@ -72,8 +72,10 @@ public class Automato {
 			}
 		}
 		if(ninguemTemOQLeio && estadoTransicaoVaizia != null) {
+			iteracoes.add("|- "+estadoTransicaoVaizia.getNome()+" / "+cadeia.toString()+" / "+pilha.toString());
 			return iterar(estadoTransicaoVaizia,restoCadeia,iteracoes);
-		}		
+		}
+		
 		
 		return iteracoes;
 	}

@@ -25,7 +25,7 @@ public class Test {
 		
 		ArrayList<Transicao> q0Transicoes = new ArrayList<>();
 		q0Transicoes.add(new Transicao(estados.get(0),estados.get(0),"0","E","E"));
-		q0Transicoes.add(new Transicao(estados.get(0),estados.get(1),"","",""));
+		q0Transicoes.add(new Transicao(estados.get(0),estados.get(1),"E","E","E"));
 		
 		ArrayList<Transicao> q1Transicoes = new ArrayList<>();
 		q1Transicoes.add(new Transicao(estados.get(1),estados.get(1),"1","x","E"));
@@ -38,7 +38,7 @@ public class Test {
 		q2.setTransicoes(q3Transicoes);
 		
 		Cadeia c = new Cadeia();
-		c.setItens("0","0","1","1");
+		c.setItens("0","0","0","1","1","1");
 		
 		Automato a = new Automato(estados, c);
 		ArrayList<String> listresul = a.run();
