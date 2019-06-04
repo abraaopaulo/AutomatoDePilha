@@ -6,13 +6,13 @@ import java.util.ArrayList;
 public class Estado {
 
 	private ArrayList<Transicao> transicoes;
-	private String id;
+	private String nome;
 	private boolean isInicial, isFinal;
 	
-	public Estado(ArrayList<Transicao> transicoes, String id, boolean isInicial, boolean isFinal) {
+	public Estado(ArrayList<Transicao> transicoes, String nome, boolean isInicial, boolean isFinal) {
 		super();
 		this.transicoes = transicoes;
-		this.id = id;
+		this.nome = nome;
 		this.isInicial = isInicial;
 		this.isFinal = isFinal;
 	}
@@ -30,12 +30,12 @@ public class Estado {
 		this.transicoes = transicoes;
 	}
 
-	public String getId() {
-		return id;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public boolean isInicial() {
@@ -53,8 +53,7 @@ public class Estado {
 	public void setFinal(boolean isFinal) {
 		this.isFinal = isFinal;
 	}
-	
-	
+
 	
 	
 }
