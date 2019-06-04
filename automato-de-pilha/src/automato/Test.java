@@ -45,5 +45,11 @@ public class Test {
 		for(String r : listresul)
 			System.out.println(r);
 	}
+	//L = {0n, 1²n, 0³n| n>1}
+	//String[] fita = {"[]","[]","[]","0","0","1","1","1","1","0","0","0","0","0","0","[]","[]","[]"};
+	
+	
+	
+	
 
 }
