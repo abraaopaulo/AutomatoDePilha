@@ -3,13 +3,13 @@ package modelTM;
 import java.util.ArrayList;
 
 
-public class Estado {
+public class EstadoTM {
 
-	private ArrayList<Transicao> transicoes;
+	private ArrayList<TransicaoTM> transicoes;
 	private String nome;
 	private boolean isInicial, isFinal;
 	
-	public Estado(ArrayList<Transicao> transicoes, String nome, boolean isInicial, boolean isFinal) {
+	public EstadoTM(ArrayList<TransicaoTM> transicoes, String nome, boolean isInicial, boolean isFinal) {
 		super();
 		this.transicoes = transicoes;
 		this.nome = nome;
@@ -17,16 +17,16 @@ public class Estado {
 		this.isFinal = isFinal;
 	}
 
-	public Estado() {
+	public EstadoTM() {
 		
 	}
 
 	
-	public ArrayList<Transicao> getTransicoes() {
+	public ArrayList<TransicaoTM> getTransicoes() {
 		return transicoes;
 	}
 
-	public void setTransicoes(ArrayList<Transicao> transicoes) {
+	public void setTransicoes(ArrayList<TransicaoTM> transicoes) {
 		this.transicoes = transicoes;
 	}
 

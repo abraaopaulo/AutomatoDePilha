@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import model.Cadeia;
-import modelTM.Estado;
-import modelTM.Transicao;
+import modelTM.EstadoTM;
+import modelTM.TransicaoTM;
 
 public class AutomatoTM {
 
-	private ArrayList<Estado> estados;
+	private ArrayList<EstadoTM> estados;
 	private ArrayList<String> cadeia = new ArrayList<String>();
 	private int ponteiro;
 
-	public AutomatoTM(ArrayList<Estado> estados, Cadeia cadeia) {
+	public AutomatoTM(ArrayList<EstadoTM> estados, Cadeia cadeia) {
 		this.estados = estados;
 		for (String c : cadeia.getItens()) {
 			this.cadeia.add(c);
@@ -28,7 +28,7 @@ public class AutomatoTM {
 			}
 		}
 
-		for (Estado e : estados) {
+		for (EstadoTM e : estados) {
 			if (e.isInicial()) {
 				return interacao(e, new ArrayList<String>());
 			}
@@ -38,13 +38,13 @@ public class AutomatoTM {
 
 	}
 
-	public ArrayList<String> interacao(Estado e, ArrayList<String> resul) {
+	public ArrayList<String> interacao(EstadoTM e, ArrayList<String> resul) {
 		ArrayList<String> resultado = null;
 		if(resul != null)
 			resultado = resul;
 
-		ArrayList<Transicao> transicaos = e.getTransicoes();
-		for (Transicao t : transicaos) {
+		ArrayList<TransicaoTM> transicaos = e.getTransicoes();
+		for (TransicaoTM t : transicaos) {
 			if (t.getLer().equals(cadeia.get(ponteiro))) {
 				cadeia.set(ponteiro, t.getEscrever());
 				if (t.getAndar().equals("R")) {

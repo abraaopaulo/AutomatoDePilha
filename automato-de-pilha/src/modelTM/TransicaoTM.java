@@ -1,16 +1,16 @@
 package modelTM;
 
-public class Transicao {
+public class TransicaoTM {
 
-	private Estado estadoInicial;
-	private Estado estadoFinal;
+	private EstadoTM estadoInicial;
+	private EstadoTM estadoFinal;
 	private String ler, escrever, andar;
 
-	public Transicao() {
+	public TransicaoTM() {
 
 	}
 
-	public Transicao(Estado estadoInicial, Estado estadoFinal, String ler, String escrever, String andar) {
+	public TransicaoTM(EstadoTM estadoInicial, EstadoTM estadoFinal, String ler, String escrever, String andar) {
 		super();
 		this.estadoInicial = estadoInicial;
 		this.estadoFinal = estadoFinal;
@@ -19,19 +19,19 @@ public class Transicao {
 		this.andar = andar;
 	}
 
-	public Estado getEstadoInicial() {
+	public EstadoTM getEstadoInicial() {
 		return estadoInicial;
 	}
 
-	public void setEstadoInicial(Estado estadoInicial) {
+	public void setEstadoInicial(EstadoTM estadoInicial) {
 		this.estadoInicial = estadoInicial;
 	}
 
-	public Estado getEstadoFinal() {
+	public EstadoTM getEstadoFinal() {
 		return estadoFinal;
 	}
 
-	public void setEstadoFinal(Estado estadoFinal) {
+	public void setEstadoFinal(EstadoTM estadoFinal) {
 		this.estadoFinal = estadoFinal;
 	}
 
