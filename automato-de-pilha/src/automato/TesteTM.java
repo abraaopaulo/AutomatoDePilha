@@ -15,61 +15,72 @@ public class TesteTM {
 	public static void main(String[] args) {
 
 		ArrayList<EstadoTM> estadosTM = new ArrayList<>();
-		int opc = -1;
-		/*switch (opc) {
-			while (opc != 0) {
-			
-		
+		int opc = -1, opc2 = -1;
+		while (opc != 0) {
+
 			opc = Integer.parseInt(JOptionPane.showInputDialog(
-				"Digite uma opção " + "\n1 Atômato com pilha " + "\n2 Máquina de Turing" + "\n0 Sair"));
-		
-		case 1:
-			String cadeio = JOptionPane.showInputDialog("Digite uma cadeio");
+					"Digite uma opção " + "\n1 Atomato de pilha " + "\n2 Maquina de Turing" + "\n0 Sair"));
+			switch (opc) {
 
-			ArrayList<Estado> estados = new ArrayList<>();
+			case 1:
+				String cadeia = JOptionPane.showInputDialog("Com base na Linguagem \n Digite uma cadeio");
+				String cadeiaMont = "";
+				
+				for (int i = 0; i < cadeia.length(); i++) {
+					if(cadeia.charAt(i) == 0) {
+						cadeiaMont += "0";
+					}else {
+						cadeiaMont += ","+"1";
+					}
+					//cadeiaMont += " "+cadeia.charAt(i+"i")  ",";
+				}
+				System.out.println(cadeiaMont);
 
-			Estado q0 = new Estado();
-			q0.setNome("q0");
-			Estado q1 = new Estado();
-			q1.setNome("q1");
-			Estado q2 = new Estado();
-			q2.setNome("q2");
+				ArrayList<Estado> estados = new ArrayList<>();
 
-			q0.setEstadoInicial(true);
-			q2.setEstadoFinal(true);
+				Estado q0 = new Estado();
+				q0.setNome("q0");
+				Estado q1 = new Estado();
+				q1.setNome("q1");
+				Estado q2 = new Estado();
+				q2.setNome("q2");
 
-			estados.add(q0);
-			estados.add(q1);
-			estados.add(q2);
+				q0.setEstadoInicial(true);
+				q2.setEstadoFinal(true);
 
-			ArrayList<Transicao> q0Transicoes = new ArrayList<>();
-			q0Transicoes.add(new Transicao(estados.get(0), estados.get(0), "0", "E", "E"));
-			q0Transicoes.add(new Transicao(estados.get(0), estados.get(1), "E", "E", "E"));
+				estados.add(q0);
+				estados.add(q1);
+				estados.add(q2);
 
-			ArrayList<Transicao> q1Transicoes = new ArrayList<>();
-			q1Transicoes.add(new Transicao(estados.get(1), estados.get(1), "1", "x", "E"));
-			q1Transicoes.add(new Transicao(estados.get(1), estados.get(2), "E", "$", "$"));
+				ArrayList<Transicao> q0Transicoes = new ArrayList<>();
+				q0Transicoes.add(new Transicao(estados.get(0), estados.get(0), "0", "E", "E"));
+				q0Transicoes.add(new Transicao(estados.get(0), estados.get(1), "E", "E", "E"));
 
-			ArrayList<Transicao> q3Transicoes = new ArrayList<>();
+				ArrayList<Transicao> q1Transicoes = new ArrayList<>();
+				q1Transicoes.add(new Transicao(estados.get(1), estados.get(1), "1", "x", "E"));
+				q1Transicoes.add(new Transicao(estados.get(1), estados.get(2), "E", "$", "$"));
 
-			q0.setTransicoes(q0Transicoes);
-			q1.setTransicoes(q1Transicoes);
-			q2.setTransicoes(q3Transicoes);
+				ArrayList<Transicao> q3Transicoes = new ArrayList<>();
 
-			Cadeia c = new Cadeia();
-			c.setItens("0", "0", "0", "1", "1", "1");
+				q0.setTransicoes(q0Transicoes);
+				q1.setTransicoes(q1Transicoes);
+				q2.setTransicoes(q3Transicoes);
 
-			Automato a = new Automato(estados, c);
-			ArrayList<String> listresul = a.run();
-			for (String r : listresul)
-				System.out.println(r);
+				Cadeia c = new Cadeia();
+				//c.setItens("0", "0", "0", "1", "1", "1");
+				c.setItens(cadeiaMont);
 
-			break;
+				Automato a = new Automato(estados, c);
+				ArrayList<String> listresul = a.run();
+				for (String r : listresul)
+					System.out.println(r);
 
-		case 0:
-			break;
+				break;
+
+			case 0:
+				break;
+			}
 		}
-		}*/
 		EstadoTM q0 = new EstadoTM();
 		q0.setNome("q0");
 		EstadoTM q1 = new EstadoTM();
