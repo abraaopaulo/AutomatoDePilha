@@ -1,4 +1,4 @@
-package model;
+package model.automatoPilha;
 
 public class Iteracao {
 	

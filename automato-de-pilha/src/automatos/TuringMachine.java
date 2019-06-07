@@ -1,19 +1,19 @@
-package automatoTM;
+package automatos;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import model.Cadeia;
-import modelTM.EstadoTM;
-import modelTM.TransicaoTM;
+import model.automatoPilha.Cadeia;
+import model.turing.EstadoTM;
+import model.turing.TransicaoTM;
 
-public class AutomatoTM {
+public class TuringMachine {
 
 	private ArrayList<EstadoTM> estados;
 	private ArrayList<String> cadeia = new ArrayList<String>();
 	private int ponteiro;
 
-	public AutomatoTM(ArrayList<EstadoTM> estados, Cadeia cadeia) {
+	public TuringMachine(ArrayList<EstadoTM> estados, Cadeia cadeia) {
 		this.estados = estados;
 		for (String c : cadeia.getItens()) {
 			this.cadeia.add(c);

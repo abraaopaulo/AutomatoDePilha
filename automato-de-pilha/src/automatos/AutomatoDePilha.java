@@ -1,13 +1,13 @@
-package automato;
+package automatos;
 
 import java.util.ArrayList;
 import java.util.Stack;
 
-import model.Cadeia;
-import model.Estado;
-import model.Transicao;
+import model.automatoPilha.Cadeia;
+import model.automatoPilha.Estado;
+import model.automatoPilha.Transicao;
 
-public class Automato {
+public class AutomatoDePilha {
 	
 	private ArrayList<Estado> estados;
 
@@ -18,7 +18,7 @@ public class Automato {
 	
 	private Stack<String> pilha;
 
-	public Automato(ArrayList<Estado> estados, Cadeia cadeia) {
+	public AutomatoDePilha(ArrayList<Estado> estados, Cadeia cadeia) {
 		super();
 		this.estados = estados;
 		this.cadeia = cadeia;

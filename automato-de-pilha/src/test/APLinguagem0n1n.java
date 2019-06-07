@@ -1,14 +1,25 @@
-package automato;
+package test;
 
 import java.util.ArrayList;
 
-import model.Cadeia;
-import model.Estado;
-import model.Transicao;
+import javax.swing.JOptionPane;
 
-public class Test {
+import automatos.AutomatoDePilha;
+import model.automatoPilha.Cadeia;
+import model.automatoPilha.Estado;
+import model.automatoPilha.Transicao;
 
-	public static void main(String[] args) {
+public class APLinguagem0n1n {
+	
+	public void testar() {
+		String cadeia = JOptionPane.showInputDialog("Com base na Linguagem L={0^n, 1^n | n>=1} \n Digite uma cadeio");
+
+		char[] elementos = cadeia.toCharArray();
+
+		String[] elementosProntos = new String[elementos.length];
+		for (int i = 0; i < elementos.length; i++) {
+			elementosProntos[i] = elementos[i] + "";
+		}
 
 		ArrayList<Estado> estados = new ArrayList<>();
 
@@ -41,18 +52,14 @@ public class Test {
 		q2.setTransicoes(q3Transicoes);
 
 		Cadeia c = new Cadeia();
-		c.setItens("0", "0", "0", "1", "1", "1");
+		 c.setItens(elementosProntos);
+		//c.setItens("0", "0", "0", "1", "1", "1");
 
-		Automato a = new Automato(estados, c);
+		AutomatoDePilha a = new AutomatoDePilha(estados, c);
 		ArrayList<String> listresul = a.run();
-		for (String r : listresul) {
+		for (String r : listresul)
 			System.out.println(r);
-			
-		}
-		
+
 	}
-	// L = {0n, 1²n, 0³n| n>1}
-	// String[] fita =
-	// {"[]","[]","[]","0","0","1","1","1","1","0","0","0","0","0","0","[]","[]","[]"};
 
 }
