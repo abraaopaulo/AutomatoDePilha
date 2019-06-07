@@ -95,24 +95,26 @@ public class TesteTM {
 
 		String cadeia = JOptionPane.showInputDialog("Com base na Linguagem \n Digite uma cadeia");
 		char[] elementos = cadeia.toCharArray();
+		int j=0;
 		
+		String[] elementosProntos = new String[elementos.length + 6];
 
-		String[] elementosProntos = new String[elementos.length +6];
+		for (int i = 0; i < elementosProntos.length; i++) {
+			if (j < 3) {
+				elementosProntos[j] = "[]";
+				j++;
+				i=-1;
+			}else if( i < elementos.length) {
+				elementosProntos[j] = elementos[i] + "";
+				j++;
 
-		for (int i = 0; i < elementos.length; i++) {
-			if (i < 3) {
-				if(elementos[i] == 0) {
-					char au = elementos[i];
-				}
-				elementosProntos[i] = "[]";
-			} else {
-				elementosProntos[i] = elementos[i] + "";
+			}else{
+				elementosProntos[j] = "[]";
+				j++;
 			}
-
 		}
-		elementosProntos[elementos.length - 3] = "[]";
-		elementosProntos[elementos.length - 2] = "[]";
-		elementosProntos[elementos.length - 1] = "[]";
+
+		
 		EstadoTM q0 = new EstadoTM();
 		q0.setNome("q0");
 		EstadoTM q1 = new EstadoTM();
