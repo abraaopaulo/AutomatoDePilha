@@ -33,7 +33,7 @@ public class TesteTM {
 				break;
 			case 0:
 				break;
-				
+
 			}
 		}
 
@@ -80,8 +80,8 @@ public class TesteTM {
 		q2.setTransicoes(q3Transicoes);
 
 		Cadeia c = new Cadeia();
-		c.addElementos(elementosProntos);
-		// c.setItens("0","0","0","1","1","1");
+		// c.setItens(elementosProntos);
+		c.setItens("0", "0", "0", "1", "1", "1");
 
 		Automato a = new Automato(estados, c);
 		ArrayList<String> listresul = a.run();
@@ -92,15 +92,27 @@ public class TesteTM {
 
 	public static void tm() {
 		ArrayList<EstadoTM> estadosTM = new ArrayList<>();
-		
-		String cadeia = JOptionPane.showInputDialog("Com base na Linguagem \n Digite uma cadeio");
 
+		String cadeia = JOptionPane.showInputDialog("Com base na Linguagem \n Digite uma cadeia");
 		char[] elementos = cadeia.toCharArray();
+		
 
-		String[] elementosProntos = new String[elementos.length];
+		String[] elementosProntos = new String[elementos.length +6];
+
 		for (int i = 0; i < elementos.length; i++) {
-			elementosProntos[i] = elementos[i] + "";
+			if (i < 3) {
+				if(elementos[i] == 0) {
+					char au = elementos[i];
+				}
+				elementosProntos[i] = "[]";
+			} else {
+				elementosProntos[i] = elementos[i] + "";
+			}
+
 		}
+		elementosProntos[elementos.length - 3] = "[]";
+		elementosProntos[elementos.length - 2] = "[]";
+		elementosProntos[elementos.length - 1] = "[]";
 		EstadoTM q0 = new EstadoTM();
 		q0.setNome("q0");
 		EstadoTM q1 = new EstadoTM();
@@ -228,12 +240,13 @@ public class TesteTM {
 		q14.setTransicoes(q14Transicoes);
 
 		Cadeia c = new Cadeia();
-		//c.setItens("[]", "[]", "[]", "0", "0", "1", "1", "1", "1", "0", "0", "0", "0", "0", "0", "[]", "[]", "[]");
-		//c.setItens("[]", "[]", "[]",elementosProntos ,"[]", "[]", "[]");
-		c.addElementos("[]", "[]", "[]");
-		c.addElementos(elementosProntos);
-		c.addElementos("[]", "[]", "[]");
-			
+		// c.setItens("[]", "[]", "[]", "0", "0", "1", "1", "1", "1", "0", "0", "0",
+		// "0", "0", "0", "[]", "[]", "[]");
+		// c.setItens("[]", "[]", "[]",elementosProntos ,"[]", "[]", "[]");
+		// c.addElementos({"[]", "[]", "[]"});
+		c.setItens(elementosProntos);
+		// c.addElementos("[]", "[]", "[]");
+
 		AutomatoTM a = new AutomatoTM(estadosTM, c);
 
 		ArrayList<String> listresul = a.run();
