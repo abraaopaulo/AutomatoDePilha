@@ -21,15 +21,17 @@ public class TesteTM {
 		while (opc != 0) {
 
 			opc = Integer.parseInt(JOptionPane.showInputDialog(
-					"Digite uma opÃ§Ã£o " + "\n1 Automato de pilha " + "\n2 Maquina de Turing" + "\n0 Sair"));
+					"Digite uma opção " + "\n1 Automato de pilha " + "\n2 Maquina de Turing" + "\n0 Sair"));
 			switch (opc) {
 
 			case 1:
 				autPilha();
+				System.out.println("\n");
 				break;
 
 			case 2:
 				tm();
+				System.out.println("\n");
 				break;
 			case 0:
 				break;
@@ -40,7 +42,7 @@ public class TesteTM {
 	}
 
 	public static void autPilha() {
-		String cadeia = JOptionPane.showInputDialog("Com base na Linguagem \n Digite uma cadeio");
+		String cadeia = JOptionPane.showInputDialog("Com base na Linguagem L={0^n, 1^n | n>=1} \n Digite uma cadeio");
 
 		char[] elementos = cadeia.toCharArray();
 
@@ -80,8 +82,8 @@ public class TesteTM {
 		q2.setTransicoes(q3Transicoes);
 
 		Cadeia c = new Cadeia();
-		// c.setItens(elementosProntos);
-		c.setItens("0", "0", "0", "1", "1", "1");
+		 c.setItens(elementosProntos);
+		//c.setItens("0", "0", "0", "1", "1", "1");
 
 		Automato a = new Automato(estados, c);
 		ArrayList<String> listresul = a.run();
@@ -93,13 +95,13 @@ public class TesteTM {
 	public static void tm() {
 		ArrayList<EstadoTM> estadosTM = new ArrayList<>();
 
-		String cadeia = JOptionPane.showInputDialog("Com base na Linguagem \n Digite uma cadeia");
+		String cadeia = JOptionPane.showInputDialog("Com base na Linguagem L={0^n, 1^2n, 0^3n| n > 1}\n Digite uma cadeia");
 		char[] elementos = cadeia.toCharArray();
 		int j=0;
 		
 		String[] elementosProntos = new String[elementos.length + 6];
 
-		for (int i = 0; i < elementosProntos.length; i++) {
+		for (int i = 0; i < elementos.length ; i++) {
 			if (j < 3) {
 				elementosProntos[j] = "[]";
 				j++;
@@ -108,10 +110,13 @@ public class TesteTM {
 				elementosProntos[j] = elementos[i] + "";
 				j++;
 
-			}else{
-				elementosProntos[j] = "[]";
-				j++;
 			}
+		}
+		
+		if (elementosProntos[j] == null){
+			elementosProntos[j] = "[]";
+			elementosProntos[j+1] = "[]";
+			elementosProntos[j+2] = "[]";
 		}
 
 		
