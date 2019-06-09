@@ -38,7 +38,7 @@ public class APLinguagem0n1n {
 		estados.add(q2);
 
 		ArrayList<Transicao> q0Transicoes = new ArrayList<>();
-		q0Transicoes.add(new Transicao(estados.get(0), estados.get(0), "0", "E", "E"));
+		q0Transicoes.add(new Transicao(estados.get(0), estados.get(0), "0", "E", "xxx"));
 		q0Transicoes.add(new Transicao(estados.get(0), estados.get(1), "E", "E", "E"));
 
 		ArrayList<Transicao> q1Transicoes = new ArrayList<>();
