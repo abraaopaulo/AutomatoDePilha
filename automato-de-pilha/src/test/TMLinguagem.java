@@ -12,7 +12,7 @@ import model.turing.TransicaoTM;
 public class TMLinguagem {
 	
 	public void testar() {
-		ArrayList<EstadoTM> estadosTM = new ArrayList<>();
+		ArrayList<EstadoTM> estadosTM = new ArrayList<>(); 
 
 		String cadeia = JOptionPane.showInputDialog("Com base na Linguagem L={0^n, 1^2n, 0^3n| n > 1}\n Digite uma cadeia");
 		char[] elementos = cadeia.toCharArray();
@@ -69,9 +69,15 @@ public class TMLinguagem {
 		q13.setNome("q13");
 		EstadoTM q14 = new EstadoTM();
 		q14.setNome("q14");
-
+		EstadoTM q15 = new EstadoTM();
+		q15.setNome("q15");
+		EstadoTM q16 = new EstadoTM();
+		q16.setNome("q16");
+		EstadoTM q17 = new EstadoTM();
+		q17.setNome("q17");
+		
 		q0.setInicial(true);
-		q14.setFinal(true);
+		q17.setFinal(true);
 
 		estadosTM.add(q0);
 		estadosTM.add(q1);
@@ -88,6 +94,9 @@ public class TMLinguagem {
 		estadosTM.add(q12);
 		estadosTM.add(q13);
 		estadosTM.add(q14);
+		estadosTM.add(q15);
+		estadosTM.add(q16);
+		estadosTM.add(q17);
 
 		ArrayList<TransicaoTM> q0Transicoes = new ArrayList<>();
 		q0Transicoes.add(new TransicaoTM(estadosTM.get(0), estadosTM.get(0), "0", "0", "R"));
@@ -96,13 +105,16 @@ public class TMLinguagem {
 		ArrayList<TransicaoTM> q1Transicoes = new ArrayList<>();
 		q1Transicoes.add(new TransicaoTM(estadosTM.get(1), estadosTM.get(1), "1", "1", "R"));
 		q1Transicoes.add(new TransicaoTM(estadosTM.get(1), estadosTM.get(2), "0", "0", "R"));
+		q1Transicoes.add(new TransicaoTM(estadosTM.get(1), estadosTM.get(3), "x", "x", "R"));
 
 		ArrayList<TransicaoTM> q2Transicoes = new ArrayList<>();
 		q2Transicoes.add(new TransicaoTM(estadosTM.get(2), estadosTM.get(2), "0", "0", "R"));
-		q2Transicoes.add(new TransicaoTM(estadosTM.get(2), estadosTM.get(3), "[]", "[]", "L"));
+		q2Transicoes.add(new TransicaoTM(estadosTM.get(2), estadosTM.get(4), "[]", "[]", "L"));
 
 		ArrayList<TransicaoTM> q3Transicoes = new ArrayList<>();
-		q3Transicoes.add(new TransicaoTM(estadosTM.get(3), estadosTM.get(4), "0", "[]", "L"));
+		q3Transicoes.add(new TransicaoTM(estadosTM.get(3), estadosTM.get(3), "x", "x", "R"));
+		q3Transicoes.add(new TransicaoTM(estadosTM.get(3), estadosTM.get(2), "0", "0", "R"));
+		q3Transicoes.add(new TransicaoTM(estadosTM.get(3), estadosTM.get(4), "[]", "[]", "L") );
 
 		ArrayList<TransicaoTM> q4Transicoes = new ArrayList<>();
 		q4Transicoes.add(new TransicaoTM(estadosTM.get(4), estadosTM.get(5), "0", "[]", "L"));
@@ -113,39 +125,50 @@ public class TMLinguagem {
 		// q0Transicoes.add(new Transicao(estados.get(0),estados.get(1),"E","E","E"));
 
 		ArrayList<TransicaoTM> q6Transicoes = new ArrayList<>();
-		q6Transicoes.add(new TransicaoTM(estadosTM.get(6), estadosTM.get(7), "0", "0", "L"));
+		q6Transicoes.add(new TransicaoTM(estadosTM.get(6), estadosTM.get(7), "0", "[]", "L"));
 		// q1Transicoes.add(new Transicao(estados.get(1),estados.get(2),"E","$","$"));
 
 		ArrayList<TransicaoTM> q7Transicoes = new ArrayList<>();
-		q7Transicoes.add(new TransicaoTM(estadosTM.get(7), estadosTM.get(7), "0", "0", "L"));
-		q7Transicoes.add(new TransicaoTM(estadosTM.get(7), estadosTM.get(8), "1", "0", "L"));
+		q7Transicoes.add(new TransicaoTM(estadosTM.get(7), estadosTM.get(8), "0", "0", "L"));
+		q7Transicoes.add(new TransicaoTM(estadosTM.get(7), estadosTM.get(9), "x", "x", "L"));
 
 		ArrayList<TransicaoTM> q8Transicoes = new ArrayList<>();
-		q8Transicoes.add(new TransicaoTM(estadosTM.get(8), estadosTM.get(9), "1", "0", "L"));
-		// q8Transicoes.add(new Transicao(estados.get(8),estados.get(2),"E","$","$"));
+		q8Transicoes.add(new TransicaoTM(estadosTM.get(8), estadosTM.get(8), "0", "0", "L"));
+		q8Transicoes.add(new TransicaoTM(estadosTM.get(8), estadosTM.get(10), "1", "x", "L"));
 
 		ArrayList<TransicaoTM> q9Transicoes = new ArrayList<>();
-		q9Transicoes.add(new TransicaoTM(estadosTM.get(9), estadosTM.get(9), "1", "1", "L"));
-		q9Transicoes.add(new TransicaoTM(estadosTM.get(9), estadosTM.get(10), "0", "0", "L"));
+		q9Transicoes.add(new TransicaoTM(estadosTM.get(9), estadosTM.get(9), "x", "x", "L"));
+		q9Transicoes.add(new TransicaoTM(estadosTM.get(9), estadosTM.get(10), "1", "x", "L"));
 
 		ArrayList<TransicaoTM> q10Transicoes = new ArrayList<>();
-		q10Transicoes.add(new TransicaoTM(estadosTM.get(10), estadosTM.get(10), "0", "0", "L"));
-		q10Transicoes.add(new TransicaoTM(estadosTM.get(10), estadosTM.get(11), "[]", "[]", "R"));
+		q10Transicoes.add(new TransicaoTM(estadosTM.get(10), estadosTM.get(11), "1", "x", "L"));
 
 		ArrayList<TransicaoTM> q11Transicoes = new ArrayList<>();
-		q11Transicoes.add(new TransicaoTM(estadosTM.get(11), estadosTM.get(12), "0", "[]", "R"));
-		// q11Transicoes.add(new Transicao(estados.get(0),estados.get(1),"E","E","E"));
+		q11Transicoes.add(new TransicaoTM(estadosTM.get(11), estadosTM.get(11), "1", "1", "L"));
+		q11Transicoes.add(new TransicaoTM(estadosTM.get(11), estadosTM.get(12), "0", "0", "L"));
 
 		ArrayList<TransicaoTM> q12Transicoes = new ArrayList<>();
-		q12Transicoes.add(new TransicaoTM(estadosTM.get(12), estadosTM.get(12), "0", "0", "R"));
-		q12Transicoes.add(new TransicaoTM(estadosTM.get(12), estadosTM.get(1), "1", "1", "R"));
-		q12Transicoes.add(new TransicaoTM(estadosTM.get(12), estadosTM.get(13), "[]", "[]", "L"));
+		q12Transicoes.add(new TransicaoTM(estadosTM.get(12), estadosTM.get(12), "0", "0", "L"));
+		q12Transicoes.add(new TransicaoTM(estadosTM.get(12), estadosTM.get(13), "[]", "[]", "R"));
 
 		ArrayList<TransicaoTM> q13Transicoes = new ArrayList<>();
-		q13Transicoes.add(new TransicaoTM(estadosTM.get(13), estadosTM.get(13), "0", "[]", "L"));
-		q13Transicoes.add(new TransicaoTM(estadosTM.get(13), estadosTM.get(14), "[]", "[]", "R"));
-
+		q13Transicoes.add(new TransicaoTM(estadosTM.get(13), estadosTM.get(14), "0", "[]", "R"));
+		//q13Transicoes.add(new TransicaoTM(estadosTM.get(13), estadosTM.get(15), "x", "[]", "L"));
+		
 		ArrayList<TransicaoTM> q14Transicoes = new ArrayList<>();
+		q14Transicoes.add(new TransicaoTM(estadosTM.get(14), estadosTM.get(14), "0", "0", "R"));
+		q14Transicoes.add(new TransicaoTM(estadosTM.get(14), estadosTM.get(1), "1", "1", "R"));
+		q14Transicoes.add(new TransicaoTM(estadosTM.get(14), estadosTM.get(15), "x", "[]", "R"));
+		
+		ArrayList<TransicaoTM> q15Transicoes = new ArrayList<>();
+		q15Transicoes.add(new TransicaoTM(estadosTM.get(15), estadosTM.get(15), "x", "[]", "R"));
+		q15Transicoes.add(new TransicaoTM(estadosTM.get(15), estadosTM.get(16), "[]", "[]", "R"));
+		
+		
+		ArrayList<TransicaoTM> q16Transicoes = new ArrayList<>();
+		q16Transicoes.add(new TransicaoTM(estadosTM.get(16), estadosTM.get(17), "[]", "[]", "L"));
+
+		ArrayList<TransicaoTM> q17Transicoes = new ArrayList<>();
 
 		// ArrayList<Transicao> q3Transicoes = new ArrayList<>();
 
@@ -164,6 +187,9 @@ public class TMLinguagem {
 		q12.setTransicoes(q12Transicoes);
 		q13.setTransicoes(q13Transicoes);
 		q14.setTransicoes(q14Transicoes);
+		q15.setTransicoes(q15Transicoes);
+		q16.setTransicoes(q16Transicoes);
+		q17.setTransicoes(q17Transicoes);
 
 		Cadeia c = new Cadeia();
 		// c.setItens("[]", "[]", "[]", "0", "0", "1", "1", "1", "1", "0", "0", "0",

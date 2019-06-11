@@ -1,38 +1,44 @@
 package model.automatoPilha;
 
-public class Iteracao {
-	
-	private Estado estado;
-	private Cadeia cadeia;
-	private String pilha;
-	
-	public Iteracao() {}
-	
-	public Iteracao(Estado estado, Cadeia cadeia, String pilha) {
-		super();
-		this.estado = estado;
-		this.cadeia = cadeia;
-		this.pilha = pilha;
-	}
-	public Estado getEstado() {
-		return estado;
-	}
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
-	public Cadeia getCadeia() {
-		return cadeia;
-	}
-	public void setCadeia(Cadeia cadeia) {
-		this.cadeia = cadeia;
-	}
-	public String getPilha() {
-		return pilha;
-	}
-	public void setPilha(String pilha) {
-		this.pilha = pilha;
-	}
-	
-	
+import java.util.Stack;
 
+public class Iteracao {
+
+    private Stack<String> pilha;
+    private String nomeEstado;
+    private Cadeia cadeia;
+
+
+    public Iteracao(Stack<String> pilha, String nomeEstado, Cadeia cadeia) {
+        this.pilha = pilha;
+        this.nomeEstado = nomeEstado;
+        this.cadeia = cadeia;
+    }
+
+    public Iteracao() {
+    }
+
+    public Stack<String> getPilha() {
+        return pilha;
+    }
+
+    public void setPilha(Stack<String> pilha) {
+        this.pilha = pilha;
+    }
+
+    public String getNomeEstado() {
+        return nomeEstado;
+    }
+
+    public void setNomeEstado(String nomeEstado) {
+        this.nomeEstado = nomeEstado;
+    }
+
+    public Cadeia getCadeia() {
+        return cadeia;
+    }
+
+    public void setCadeia(Cadeia cadeia) {
+        this.cadeia = cadeia;
+    }
 }

@@ -5,6 +5,7 @@ import java.util.Stack;
 
 import model.automatoPilha.Cadeia;
 import model.automatoPilha.Estado;
+import model.automatoPilha.Iteracao;
 import model.automatoPilha.Transicao;
 
 public class AutomatoDePilha {
@@ -25,7 +26,7 @@ public class AutomatoDePilha {
 		this.pilha = new Stack<String>();
 	}
 
-	public ArrayList<String> run() {
+	public ArrayList<Iteracao> run() {
 		pilha.push("$");
 		// buscando o estado inicial e final
 		for (Estado e : estados) {
@@ -36,25 +37,28 @@ public class AutomatoDePilha {
 			}
 		}
 
-		return iterar(estadoDePartida, cadeia, new ArrayList<String>());
+		return iterar(estadoDePartida, cadeia, new ArrayList<Iteracao>());
 	}
 
-	public ArrayList<String> iterar(Estado estado, Cadeia restoCadeia, ArrayList<String> iteracoes) {
+	public ArrayList<Iteracao> iterar(Estado estado, Cadeia restoCadeia, ArrayList<Iteracao> iteracoes) {
 		ArrayList<Transicao> listaDeTansicoes = estado.getTransicoes();
 
 		Transicao t = checarRota(listaDeTansicoes, restoCadeia.getPrimeiroItem());
 		if (t != null) {
 			restoCadeia.removerprimeiroItem();
-			iteracoes.add("|- " + t.getEstadoFinal().getNome() + " / " + cadeia.toString() + " / " + pilha.toString());
+			//iteracoes.add("|- " + t.getEstadoFinal().getNome() + " / " + cadeia.toString() + " / " + pilha.toString());
+			iteracoes.add(new Iteracao(pilha,t.getEstadoInicial().getNome(), restoCadeia));
 			return iterar(t.getEstadoFinal(), restoCadeia, iteracoes);
 		} else {
 			t = checarRota(listaDeTansicoes, "E");
 			if (t != null) {
-				iteracoes.add(
-						"|- " + t.getEstadoFinal().getNome() + " / " + cadeia.toString() + " / " + pilha.toString());
+				iteracoes.add(new Iteracao(pilha,t.getEstadoInicial().getNome(), restoCadeia));
+				//iteracoes.add(
+					//	"|- " + t.getEstadoFinal().getNome() + " / " + cadeia.toString() + " / " + pilha.toString());
 				return iterar(t.getEstadoFinal(), restoCadeia, iteracoes);
 			}
 		}
+		
 
 		return iteracoes;
 	}

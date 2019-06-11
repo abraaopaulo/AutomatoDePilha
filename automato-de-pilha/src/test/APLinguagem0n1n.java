@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import automatos.AutomatoDePilha;
 import model.automatoPilha.Cadeia;
 import model.automatoPilha.Estado;
+import model.automatoPilha.Iteracao;
 import model.automatoPilha.Transicao;
 
 public class APLinguagem0n1n {
@@ -38,7 +39,7 @@ public class APLinguagem0n1n {
 		estados.add(q2);
 
 		ArrayList<Transicao> q0Transicoes = new ArrayList<>();
-		q0Transicoes.add(new Transicao(estados.get(0), estados.get(0), "0", "E", "xxx"));
+		q0Transicoes.add(new Transicao(estados.get(0), estados.get(0), "0", "E", "x"));
 		q0Transicoes.add(new Transicao(estados.get(0), estados.get(1), "E", "E", "E"));
 
 		ArrayList<Transicao> q1Transicoes = new ArrayList<>();
@@ -56,9 +57,9 @@ public class APLinguagem0n1n {
 		//c.setItens("0", "0", "0", "1", "1", "1");
 
 		AutomatoDePilha a = new AutomatoDePilha(estados, c);
-		ArrayList<String> listresul = a.run();
-		for (String r : listresul)
-			System.out.println(r);
+		ArrayList<Iteracao> listresul = a.run();
+		for (Iteracao i : listresul)
+			System.out.println("|-"+i.getNomeEstado()+" / "+i.getCadeia().toString()+" / "+i.getPilha().toString());
 
 	}
 

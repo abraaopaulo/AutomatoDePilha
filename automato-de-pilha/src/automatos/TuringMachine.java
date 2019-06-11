@@ -39,28 +39,41 @@ public class TuringMachine {
 	}
 
 	public ArrayList<String> interacao(EstadoTM e, ArrayList<String> resul) {
-		ArrayList<String> resultado = null;
-		if(resul != null)
-			resultado = resul;
 
-		ArrayList<TransicaoTM> transicaos = e.getTransicoes();
-		for (TransicaoTM t : transicaos) {
-			if (t.getLer().equals(cadeia.get(ponteiro))) {
-				cadeia.set(ponteiro, t.getEscrever());
-				if (t.getAndar().equals("R")) {
-					ponteiro++;
-				} else {
-					ponteiro--;
-				}
-				System.out.println(cadeia.toString());
-				
-				if (!t.getEstadoFinal().isFinal()) {
-					return interacao(t.getEstadoFinal(), resultado);
+		if (e.isFinal()) {
+			System.out.println("cadeia aceita");
+			return resul;
+		} else {
+
+			ArrayList<TransicaoTM> transicaos = e.getTransicoes();
+			for (TransicaoTM t : transicaos) {
+				if (t.getLer().equals(cadeia.get(ponteiro))) {
+					if (!e.isFinal()) {
+						cadeia.set(ponteiro, t.getEscrever());
+						if (t.getAndar().equals("R")) {
+							ponteiro++;
+						} else {
+							ponteiro--;
+						}
+						System.out.println();
+						System.out.print(e.getNome());
+						for (int i = 0; i < cadeia.size(); i++) {
+							if (i == ponteiro) {
+								System.out.print(",->" + cadeia.get(i) + "<-");
+							} else {
+								System.out.print("," + cadeia.get(i));
+							}
+						}
+
+						return interacao(t.getEstadoFinal(), resul);
+
+					}
+
 				}
 			}
 		}
-
-		return resultado;
+		System.out.println("Erro na cadeia");
+		return null;
 
 	}
 
